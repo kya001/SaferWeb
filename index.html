@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Safe - URL Safety Checker & Website Screenshot Tool</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+<meta name="description" content="Check if URLs are safe or malicious, detect phishing and malware threats, capture website screenshots in real-time, expand shortened URLs, and access proxified versions of websites. Free online URL security scanner.">
+<meta name="keywords" content="URL checker, malicious URL detector, phishing detector, malware scanner, website screenshot, short URL expander, URL safety, proxified URL, web security, safe browsing, threat detection, deceptive sites">
+<meta name="author" content="Prateek Chaubey">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#00FFDD">
+
+<meta property="og:title" content="Web Safe - URL Safety Checker & Website Screenshot Tool">
+<meta property="og:description" content="Protect yourself online! Check URLs for malware, phishing & threats. Get real-time website screenshots, expand short URLs, detect redirections, and access proxified versions. Free security scanner.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://websafe.com">
+<meta property="og:site_name" content="Web Safe">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Safe - URL Safety Checker & Website Screenshot Tool">
+<meta name="twitter:description" content="Check URLs for malware, phishing & threats. Get real-time website screenshots, expand short URLs, detect redirections, and access proxified versions.">
+
+<link rel="canonical" href="https://websafe.com">
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font-family: "Stack Sans Notch", sans-serif;
+}
+
+body {
+  background: #001;
+}
+
+#mainContainer {
+  background: #001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 99;
+}
+
+.loadingScreen {
+  background: rgba(0, 0, 0, .9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #f07;
+  display: grid;
+  place-content: center;
+  z-index: 99999999999999;
+}
+
+.spinner {
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  border-left: 2px solid #0f8;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+.screenshotContainer {
+  height: 250px;
+  width: 90%;
+  background: rgba(255, 255, 255, .1);
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 5px;
+  position: relative;
+}
+
+.screenshotContainer img {
+  max-height: 100%;
+  max-width: 98%;
+  border-radius: 10px;
+}
+
+.infoContainer {
+  height: auto;
+  width: 90%;
+  margin: auto;
+  padding-left: 20px;
+  padding-top: 20px;
+  position: relative;
+  overflow: hidden;
+  word-wrap: break-word;
+  padding-bottom: 20px;
+}
+
+.infoContainer b {
+  color: white;
+  text-decoration: none;
+}
+
+.screenshotContainer .spinner,
+.infoContainer .spinner {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+
+.buttonGroup {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  height: 30px;
+  display: none;
+}
+
+.buttonGroup button {
+  height: 30px;
+  margin-top: 5px;
+  background: linear-gradient(90deg, #f08, purple);
+  border: 0;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 30%;
+}
+
+header {
+  height: 50px;
+  background:  linear-gradient(90deg, #f08, purple);
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.searchBar {
+  width: 80%;
+  height: 35px;
+  margin: auto;
+  margin-top: 30px;
+  background: linear-gradient(90deg, #f35, #f82);
+  padding: 5px;
+  border-radius: 30px;
+  display: flex;
+}
+
+.searchBar input {
+  border-radius: 30px 0 0 30px;
+  border: 0;
+  height: 95%;
+  width: 78%;
+  font-size: 17px;
+  padding-left: 20px;
+  padding-right: 5px;
+  background: #001;
+  color: #fff;
+}
+
+.searchBar button {
+  border-radius: 0 30px 30px 0;
+  border: 0;
+  height: 95%;
+  width: 18%;
+  font-size: 17px;
+  background: #001;
+  color: #fff;
+}
+
+u {
+  color: #f35;
+}
+
+@media screen and (min-width: 760px) {
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+  }
+  
+  .infoContainer {
+    width: 45%;
+  }
+  
+  .screenshotContainer {
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    margin-top: 0;
+  }
+  
+  .searchBar {
+    width: 50%;
+  }
+}
+
+.instructions {
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+  width: 90%;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+</style>
+</head>
+<body>
+<div id="mainContainer">
+  <div class="loadingScreen">
+    <div class="spinner"></div>
+  </div>
+  
+  <header>Web Safe</header>
+
+  <div class="searchBar">
+    <input type="text" id="urlInput" placeholder="Enter your URL">
+    <button id="searchButton"><i class="bi bi-search"></i></button>
+  </div>
+
+  <div class="instructions">
+    Enter the website URL and get it's status with screenshot in realtime 
+  </div>
+ 
+  <div class="contentWrapper" style="visibility:hidden">
+    <div class="screenshotContainer">
+      <img src="" id="screenshotImage">
+      <div class="spinner" id="screenshotSpinner"></div>
+      
+      <div class="buttonGroup" style="display:block">
+        <button style="opacity:.5;pointer-events:none" id="downloadButton"><i class="bi bi-download"></i> Download</button>
+        <button style="opacity:.5;pointer-events:none" id="shareButton"><i class="bi bi-share"></i> Share</button>
+        <button id="proxyButton"><i class="bi bi-box-arrow-up-right"></i> Proxified</button>
+      </div>
+    </div>
+
+    <div class="infoContainer">
+      <div class="spinner" id="infoSpinner" style="display:none"></div>
+      
+      <center>
+        <span id="statusText"></span>
+      </center>
+      
+      <br>
+      
+      <span id="urlInfo"></span>
+      
+      <br><br>
+      
+      <span id="descriptionText"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+const screenshotApi = "/screenshot";
+const safetyApi = "/safety";
+const proxyUrl = "/proxy?url=";
+
+let imageBlob, shareDescription, shareTitle, shareUrl;
+
+window.onload = () => {
+  document.querySelector(".loadingScreen").style.display = "none";
+  const urlParam = new URLSearchParams(window.location.search).get("url");
+  try {
+    new URL(urlParam);
+    document.getElementById("urlInput").value = urlParam;
+    validateAndFetch();
+  } catch (e) {
+    return;
+  }
+};
+
+document.getElementById("downloadButton").addEventListener("click", () => {
+  const link = document.createElement('a');
+  link.href = document.getElementById("screenshotImage").src;
+  link.download = 'ScreenShot via @WebCaptureRoBot.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+document.getElementById("proxyButton").addEventListener("click", () => {
+  window.open(proxyUrl + document.getElementById("urlInput").value);
+});
+
+document.getElementById("shareButton").addEventListener("click", () => {
+  const shareFile = new File([imageBlob], 'ScreenShot using WebSafe', { type: 'image/jpeg' });
+
+  if (navigator.share) {
+    navigator.share({
+      files: [shareFile],
+      title: shareTitle,
+      text: shareTitle + "\n\n" + shareDescription
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.origin + "?url=" + shareUrl);
+    alert("URL Copied to clipboard");
+  }
+});
+
+document.getElementById("searchButton").addEventListener("click", validateAndFetch);
+document.getElementById("urlInput").addEventListener("keyup", (e) => {
+  if (e.key === 'Enter' || e.keyCode === 13) validateAndFetch();
+});
+document.getElementById("urlInput").addEventListener("keydown", (e) => {
+  if (e.key === 'Enter' || e.keyCode === 13) validateAndFetch();
+});
+
+async function validateAndFetch() {
+  const url = document.getElementById("urlInput").value;
+
+  try {
+    new URL(url);
+  } catch (e) {
+    document.querySelector(".instructions").innerHTML = "Enter a valid URL";
+    document.querySelector(".instructions").style.color = "#f32";
+    return;
+  }
+
+  document.querySelector(".instructions").style.display = "none";
+  document.querySelector(".contentWrapper").style.visibility = "visible";
+  document.getElementById("screenshotSpinner").style.display = "block";
+  document.getElementById("infoSpinner").style.display = "block";
+  document.getElementById("statusText").innerHTML = "";
+  document.getElementById("urlInfo").innerHTML = "";
+  document.getElementById("descriptionText").innerHTML = "";
+  document.getElementById("downloadButton").style.opacity = "0.5";
+  document.getElementById("downloadButton").style.pointerEvents = "none";
+  document.getElementById("shareButton").style.opacity = "0.5";
+  document.getElementById("shareButton").style.pointerEvents = "none";
+  document.getElementById("screenshotImage").src = "";
+
+  fetchScreenshot(url);
+
+  const response = await fetch(`${safetyApi}?url=${url}`).then(r => r.json());
+
+  if (response?.error) {
+    document.querySelector(".contentWrapper").style.visibility = "hidden";
+    document.getElementById("screenshotImage").src = "";
+    document.querySelector(".instructions").style.display = "block";
+    document.querySelector(".instructions").innerHTML = response.error;
+    document.querySelector(".instructions").style.color = "#f32";
+    return;
+  }
+
+  const threatData = response[1];
+  let status = "", description = "", isSafe = false;
+
+  if (Object.keys(threatData).length === 0) {
+    status = "This URL is safe";
+    isSafe = true;
+    description = "This website doesn't contain any harmful content.";
+  } else if (threatData?.matches[0].threatType == "SOCIAL_ENGINEERING") {
+    status = `This website is Deceptive`;
+    description = `Attackers on <u>[${url}]</u> may trick you into doing something dangerous like installing software or revealing your personal information (for example, passwords, phone numbers, or credit cards).`;
+  } else if (threatData?.matches[0].threatType == "MALWARE") {
+    status = `Visiting this web site may harm your computer`;
+    description = `This page appears to contain malicious code that could be downloaded to your computer without your consent.`;
+  } else if (threatData?.matches[0].threatType == "UNWANTED_SOFTWARE") {
+    status = `The site ahead may contain harmful programs.`;
+    description = `Attackers might attempt to trick you into installing programs that harm your browsing experience (for example, by changing your homepage or showing extra ads on sites you visit).`;
+  } else if (threatData?.matches[0].threatType == "POTENTIALLY_HARMFUL_APPLICATION") {
+    status = `The site ahead may contain malware.`;
+    description = `Attackers might attempt to install dangerous apps on your device that steal or delete your information (for example, photos, passwords, messages, and credit cards).`;
+  } else if (threatData?.matches[0].threatType == "THREAT_TYPE_UNSPECIFIED") {
+    status = `This website is unsafe.`;
+    description = `An unspecified threat was found on this website.`;
+  }
+
+  shareUrl = url;
+  shareTitle = status;
+  shareDescription = `${description}\n\nURL: ${url}\nRedirection : ${(url == response[0]) ? "None" : response[0]}`;
+
+  if (isSafe) {
+    status = `<span style="color:#0f8;font-size:20px"><i class="bi bi-check-circle"></i> ${status}</span>`;
+    description = `<span>Description:</span> <b>${description}</b>`;
+  } else {
+    status = `<span style="color:red;font-size:20px"><i class="bi bi-exclamation-octagon"></i> ${status}</span>`;
+    description = `<span>Description:</span> <b>${description}</b>`;
+  }
+
+  document.getElementById("infoSpinner").style.display = "none";
+  document.getElementById("statusText").innerHTML = status;
+  document.getElementById("urlInfo").innerHTML = `URL: <b>${url}</b><br><br>Redirection : <b>${(url == response[0]) ? "None" : response[0]}</b>`;
+  document.getElementById("descriptionText").innerHTML = description;
+}
+
+async function fetchScreenshot(url) {
+  const response = await fetch(`${screenshotApi}?page=${url}`);
+  const blob = await response.blob();
+  imageBlob = blob;
+  const imageUrl = URL.createObjectURL(blob);
+
+  document.getElementById("screenshotSpinner").style.display = "none";
+  document.getElementById("screenshotImage").src = imageUrl;
+  document.getElementById("downloadButton").style.opacity = "1";
+  document.getElementById("downloadButton").style.pointerEvents = "auto";
+  document.getElementById("shareButton").style.opacity = "1";
+  document.getElementById("shareButton").style.pointerEvents = "auto";
+}
+</script>
+
+<br>
+</body>
+</html>
