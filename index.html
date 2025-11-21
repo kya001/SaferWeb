@@ -311,7 +311,7 @@ document.getElementById("proxyButton").addEventListener("click", () => {
 });
 
 document.getElementById("shareButton").addEventListener("click", () => {
-  const shareFile = new File([imageBlob], 'ScreenShot using WebSafe', { type: 'image/jpeg' });
+  const shareFile = new File([imageBlob], 'ScreenShot using WebSafe.jpg', { type: 'image/jpeg' });
 
   if (navigator.share) {
     navigator.share({
